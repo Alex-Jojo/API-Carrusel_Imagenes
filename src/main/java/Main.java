@@ -24,8 +24,8 @@ public class Main {
                 "Razas", JOptionPane.QUESTION_MESSAGE, null, razas, "Husky"));
 
 
-        DogsApiResponse response = query(n, tipo);
-        ArrayList<String> urls = response.getMessage();
+        Dogs response = query(n, tipo);
+        ArrayList<String> urls = response.getMensaje();
 
         SwingUtilities.invokeLater(()->{
             ImageSlideShow frame = new ImageSlideShow(urls);
@@ -33,8 +33,8 @@ public class Main {
             frame.setVisible(true);
         });
     }
-    public static DogsApiResponse query(int n, String tipo) {
-        DogsApiResponse response = null;
+    public static Dogs query(int n, String tipo) {
+        Dogs response = null;
         try {
             String apiUrl = URL_1 + tipo + URL_2 + n;
             URL url = new URL(apiUrl);
@@ -48,7 +48,7 @@ public class Main {
                 }
 
                 Gson gson = new Gson();
-                response = gson.fromJson(jsonText.toString(), DogsApiResponse.class);
+                response = gson.fromJson(jsonText.toString(), Dogs.class);
             } catch (IOException e) {
                 throw new RuntimeException("Error al leer la respuesta de la API: " + e.getMessage(), e);
             }
