@@ -1,6 +1,5 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -8,12 +7,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ImageSlideShow extends JFrame {
+public class ImageSlide extends JFrame {
     private static ImgPanel imgPanel;
     private static Timer timer;
     private static int current;
     private static ArrayList<String> imgURLS;
-    public ImageSlideShow (ArrayList<String> urls){
+    public ImageSlide(ArrayList<String> urls){
         //super();
         this.imgURLS = urls;
         current = 0;

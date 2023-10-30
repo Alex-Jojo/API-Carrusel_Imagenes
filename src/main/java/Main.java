@@ -28,7 +28,7 @@ public class Main {
         ArrayList<String> urls = response.getMensaje();
 
         SwingUtilities.invokeLater(()->{
-            ImageSlideShow frame = new ImageSlideShow(urls);
+            ImageSlide frame = new ImageSlide(urls);
             frame.setSize(100,30);
             frame.setVisible(true);
         });
