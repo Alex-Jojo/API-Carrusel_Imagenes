@@ -25,30 +25,36 @@ public class Main {
 
 
         Dogs response = query(n, tipo);
-        ArrayList<String> urls = response.getMensaje();
+        ArrayList<String> urls = response.getMessage();
 
+        for(String u: urls){
+            System.out.println(u);
+        }
         SwingUtilities.invokeLater(()->{
             ImageSlide frame = new ImageSlide(urls);
             frame.setSize(100,30);
             frame.setVisible(true);
         });
     }
+
     public static Dogs query(int n, String tipo) {
         Dogs response = null;
         try {
             String apiUrl = URL_1 + tipo + URL_2 + n;
+            System.out.println(apiUrl);
             URL url = new URL(apiUrl);
-
             try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
                 StringBuilder jsonText = new StringBuilder();
                 String line;
 
                 while ((line = in.readLine()) != null) {
                     jsonText.append(line);
+                    System.out.println(line);
                 }
 
                 Gson gson = new Gson();
                 response = gson.fromJson(jsonText.toString(), Dogs.class);
+                System.out.println(response.getStatus());
             } catch (IOException e) {
                 throw new RuntimeException("Error al leer la respuesta de la API: " + e.getMessage(), e);
             }

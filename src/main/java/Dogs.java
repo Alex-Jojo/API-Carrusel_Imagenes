@@ -1,18 +1,20 @@
 import java.util.ArrayList;
 
 public class Dogs {
-    public ArrayList<String> mensaje;
-    public String estado;
+    public ArrayList<String> message;
+    public String status;
 
     public Dogs(ArrayList<String> message, String status) {
-        this.mensaje = message;
-        this.estado = status;
+        this.message = message;
+        this.status = status;
     }
 
 
-    public ArrayList<String> getMensaje() {
-        return mensaje;
+    public ArrayList<String> getMessage() {
+        return message;
     }
 
-
+    public String getStatus() {
+        return status;
+    }
 }
